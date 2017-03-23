@@ -10,8 +10,8 @@
     $('#new-form').on('change', newArticle.create);
   };
 
-// TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
-// Put your response in this comment...
+// DONE/TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
+// This is creating a new article. It is not taking any values. It is interacting with the Handlebars template in new.html.
   newArticle.create = function() {
     $('#articles').empty();
     let formArticle = new Article({

@@ -34,8 +34,8 @@
     });
   };
 
-  // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE/TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  //This function is called within articleView.index. No values are passed in. It is the article filter.
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       let resource = this.id.replace('-filter', '');
@@ -65,8 +65,8 @@
     articleView.populateFilters();
     articleView.handleFilters();
 
-    // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-    // Put your response in this comment...
+    // DONE/TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+    // This is an if statement in articleView.index. It hides and reveals parts of the template. 
     if ($('#articles article').length > 1) {
       $('.article-body *:nth-of-type(n+2)').hide();
     }
