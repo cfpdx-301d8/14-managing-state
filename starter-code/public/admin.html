@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="/styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
-    <!-- TODO: What is the purpose of the following <script> tag? Where does it interact with other JavaScript? -->
-    <!-- Put your response in this comment... -->
+    <!-- Donzo TODO: What is the purpose of the following <script> tag? Where does it interact with other JavaScript? -->
+    <!-- Put your response in this comment... 
+    The script tag creates an area for the handlebars template to be built within the HTML file.
+    Allows the curly braces to encapsulate the value held by that JavaScript variable.
+    The render function in articleView.js useds this by referencing the ID and takes the HTML as a string and compiles it.
+    This render function is passed as a argument in a append function inside of a forEach function inside of the articleView.index function.
+    IOW, the script tag allows for each article to populate the template format and be appended to the page. -->
     <script id="author-template" type="text/x-handlebars-template">
       <li><strong>{{name}}</strong>: {{numWords}} words written</li>
     </script>
