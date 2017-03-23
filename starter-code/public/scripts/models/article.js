@@ -45,8 +45,8 @@
     )
   };
 
-  // TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE/TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  // The findWhere method is being invoked in articleController.js in the articleController object, specifically in loadByID, loadByAuthor and loadByCategory methods. The first value passed in represent the Id, author and category attributes. The second value represents the context of the query. The third value represents the callback where the object is being populated by Id, author or category. 
   Article.findWhere = function(field, value, callback) {
     $.get('/articles/find', {field: field, val: value})
     .then(callback)
@@ -82,8 +82,8 @@
     })
   };
 
-  // TODO: Where is this invoked? Where does it interact elsewhere in the code? Where does the output of this code end up?
-  // Put your response in this comment...
+  // DONE/TODO: Where is this invoked? Where does it interact elsewhere in the code? Where does the output of this code end up?
+  // The function is invoked immediately. It populates the numArticles, numWords and Authors fields of the Handlebars template for admin.html. The output of the code ends up in admin.html. 
   Article.stats = () => {
     return {
       numArticles: Article.all.length,
@@ -116,8 +116,8 @@
     .then(callback);
   };
 
-  // TODO: Where does this code interact with other code in the blog application?
-  // Put your response in this comment...
+  // DONE/TODO: Where does this code interact with other code in the blog application?
+  // It interacts with server.js with the ajax call. It interacts with our SQL table in server.js at app.put('/articles/:id', (request, response)). It updates the data in the data table.
   Article.prototype.updateRecord = function(callback) {
     $.ajax({
       url: `/articles/${this.article_id}`,

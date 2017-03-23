@@ -1,5 +1,5 @@
-// TODO: Where is this invoked? Where does it interact elsewhere in the code?
-// Put your response in this comment...
+// DONE/TODO: Where is this invoked? Where does it interact elsewhere in the code?
+// This function is immediately invoked. It compiles our Handlebars template and sends it to the handlebars template which is on admin.html.
 
 (function() {
   const adminView = {
