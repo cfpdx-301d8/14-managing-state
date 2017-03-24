@@ -15,8 +15,8 @@
     Article.findWhere('article_id', ctx.params.article_id, articleData);
   };
 
-  // TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
-  // Put your response in this comment...
+  // DONE TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
+  // Put your response in this comment... It recieves its input data from the get request in findWhere after it is told what to search for by the route specified by the url.
   articleController.loadByAuthor = (ctx, next) => {
     let authorData = articlesByAuthor => {
       ctx.articles = articlesByAuthor;

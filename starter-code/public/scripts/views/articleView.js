@@ -34,10 +34,10 @@
     });
   };
 
-  // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  // Put your response in this comment... It is invoked in articleView.index. It interacts with articleView.populateFilters. Check comment in function below.
   articleView.handleFilters = function() {
-    $('#filters').one('change', 'select', function() {
+    $('#filters').on/*e*/('change', 'select', function() {
       let resource = this.id.replace('-filter', '');
       $(this).parent().siblings().find('select').val(''); // Reset the val from the opposing drop down
       page(`/${resource}/${$(this).val().replace(/\W+/g, '+')}`); // Replace any/all whitespace with a +
@@ -65,8 +65,8 @@
     articleView.populateFilters();
     articleView.handleFilters();
 
-    // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-    // Put your response in this comment...
+    // DONE TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+    // Put your response in this comment... It's invoked here, but only if there is more than one article. If so, set the teaser for the article. 
     if ($('#articles article').length > 1) {
       $('.article-body *:nth-of-type(n+2)').hide();
     }

@@ -45,8 +45,8 @@
     )
   };
 
-  // TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  // Put your response in this comment... It is invoked inside of three seperate functions in the articleController.js file (loadById, loadByAuthor, and loadByCategory) which are fired off by a clicking an anchor which sends the url to routes.js. These functions give findWhere "field" and "value", which are used in the get request to find a specific article, which is then sent back to the loadBy(...) function's  (...)Data function via the callback.  
   Article.findWhere = function(field, value, callback) {
     $.get('/articles/find', {field: field, val: value})
     .then(callback)
@@ -82,8 +82,8 @@
     })
   };
 
-  // TODO: Where is this invoked? Where does it interact elsewhere in the code? Where does the output of this code end up?
-  // Put your response in this comment...
+  // DONE TODO: Where is this invoked? Where does it interact elsewhere in the code? Where does the output of this code end up?
+  // Put your response in this comment... It's never invoked.
   Article.stats = () => {
     return {
       numArticles: Article.all.length,
@@ -116,8 +116,8 @@
     .then(callback);
   };
 
-  // TODO: Where does this code interact with other code in the blog application?
-  // Put your response in this comment...
+  // DONE TODO: Where does this code interact with other code in the blog application?
+  // Put your response in this comment... It interacts with the put request in the server. Doesn't appear to be linked to a view for the code to be utilized.
   Article.prototype.updateRecord = function(callback) {
     $.ajax({
       url: `/articles/${this.article_id}`,
