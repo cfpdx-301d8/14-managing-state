@@ -15,8 +15,10 @@
     Article.findWhere('article_id', ctx.params.article_id, articleData);
   };
 
-  // TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
+  // DONE TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
   // Put your response in this comment...
+  //  This function is getting used in routes.js on line 11 inside a page call to the url '/author/:authorName'. It gets its input data from the ajax call in  Article.findWhere in article.js and the fact that that function is called wihtin this function with its callback function being authorData, which uses the ctx object and by calling next() makes part of the output/effect of this function that it calls articleController.index which renders the output to the page.
+  //  
   articleController.loadByAuthor = (ctx, next) => {
     let authorData = articlesByAuthor => {
       ctx.articles = articlesByAuthor;

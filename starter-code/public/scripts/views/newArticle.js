@@ -10,8 +10,9 @@
     $('#new-form').on('change', newArticle.create);
   };
 
-// TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
+// DONE TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
 // Put your response in this comment...
+// This function is invoked in the newArticle.initNewArticlePage function in newArticle.js. No value is passed into it, but it is invoked as an argument of an event handler that is listening for a change event on the form in new.html. When someone changes the form it initializes this function, creates a new instance of article, assigns it the properties of an article, and then initilizes the new article page with .initNewarticle page. 
   newArticle.create = function() {
     $('#articles').empty();
     let formArticle = new Article({
