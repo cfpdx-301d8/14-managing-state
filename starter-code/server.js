@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const requestProxy = require('express-request-proxy');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const conString = 'postgres://localhost:5432'; // TODO: Don't forget to set your own conString
+const conString = 'postgres://localhost:5432'; // DONE TODO: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect(console.error);
 
@@ -15,8 +15,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 
-// TODO: Describe what our function for our middleware / proxy handling interacts with, both in what it does and where it is called
+// DONE TODO: Describe what our function for our middleware / proxy handling interacts with, both in what it does and where it is called
 // Put your response in this comment...
+// We think that this is here to allow us to avoid a CORS error because we are using page.js to do client side routing and we need a proxy to bounce our request off of. It is also here to supply our github token as a value stored on the process.env object and request the github api with it. It is being called in a get request to the path /github/*, this happens when the requestRepos function is called.
 function proxyGitHub(request, response) {
   console.log('Routing GitHub request for', request.params[0]);
   (requestProxy({
@@ -30,8 +31,9 @@ function proxyGitHub(request, response) {
 app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
 app.get('/about', (request, response) => response.sendFile('index.html', {root: './public'}));
-// TODO: Where is this route called in the code? When invoked, what happens next?
+// DONE TODO: Where is this route called in the code? When invoked, what happens next?
 // Put your response in this comment...
+// This route is called in the repos.requestRepos function in repo.js, whenever that function is called, this route gets hit and the proxyGitHub function gets called which replaces the rest of the url with the applicable params for the github api url and supplies the token.
 app.get('/github/*', proxyGitHub);
 
 
@@ -68,8 +70,9 @@ app.get('/articles', (request, response) => {
 });
 
 
-// TODO: This is a new route to find a specific instance of an article record from the DB. Where is it invoked? What does it do?
+// DONE TODO: This is a new route to find a specific instance of an article record from the DB. Where is it invoked? What does it do?
 // Put your response in this comment...
+// This route is being invoked by the Article.findWhere function in article.js in an ajax call. This selects all the authors from the articles table which meet a specific author id. 
 app.get('/articles/find', (request, response) => {
   let client = new pg.Client(conString);
   let sql = `SELECT * FROM articles
@@ -92,8 +95,9 @@ app.get('/articles/find', (request, response) => {
 })
 
 
-// TODO: Where is this route invoked? What does it do?
+// DONE TODO: Where is this route invoked? What does it do?
 // Put your response in this comment...
+// This route is invoked in the Article.allCategories function in article.js which renders the categories to the category dropdown menu. This route itself selects the categories from the articles table in the database.
 app.get('/categories', (request, response) => {
   let client = new pg.Client(conString);
 
@@ -197,8 +201,9 @@ app.delete('/articles/:id', (request, response) => {
   response.send('Delete complete');
 });
 
-// TODO: Where is this invoked? What does it do?
+// DONE TODO: Where is this invoked? What does it do?
 // Put your response in this comment...
+// This is invoked in the article.js file in the ajax call with the method of DELETE. This deletes the article from the table that is an instance with the current articles ID that is populated into the handlebars template.
 app.delete('/articles', (request, response) => {
   client.query(
     'DELETE FROM articles;'

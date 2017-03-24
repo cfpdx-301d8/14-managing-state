@@ -34,8 +34,9 @@
     });
   };
 
-  // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  // DONE TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
   // Put your response in this comment...
+  // This function is an 'change' event handler that reacts to the option element which filters being changed. It is invoked inside of the articleView.index function below. There isn't anything being passed into this function. This function changes the url in the browser when a filter option is changed which triggers the corresponding page call in routes.js and creates a series of function calls based on what that page call has passed in.
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       let resource = this.id.replace('-filter', '');
@@ -65,8 +66,9 @@
     articleView.populateFilters();
     articleView.handleFilters();
 
-    // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+    // DONE TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
     // Put your response in this comment...
+    // This function is invoked in the articleController file insdie of the articleController.index function. It takes ctx.articles as an argument which holds the array of objects with articles in them. This traces back through the middleware function that corresponds to the articles being filters out and the dropdown menu being selected which triggers the corresponding page calls in routes.js.
     if ($('#articles article').length > 1) {
       $('.article-body *:nth-of-type(n+2)').hide();
     }
