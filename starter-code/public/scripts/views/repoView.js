@@ -10,8 +10,10 @@
     $about.show().siblings().hide();
   };
 
-  // TODO: What is in 'render'? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE TODO: What is in 'render'? What values are passed in? Where does it interact elsewhere in the code?
+  // render is: text containing the html from repo template and the object being passed into the template
+  // values passed in: is a object that we get from github API
+  // interacts with the code: it interact with the index.html page where the template is 
   const render = Handlebars.compile($('#repo-template').text());
 
   repoView.index = function() {

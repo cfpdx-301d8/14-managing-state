@@ -36,6 +36,9 @@
 
   // TODO: Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
   // Put your response in this comment...
+  //INVOKED:
+  //PASSED IN:
+  //INTERACT WITH CODE:
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       let resource = this.id.replace('-filter', '');

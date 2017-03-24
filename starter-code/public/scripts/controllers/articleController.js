@@ -7,7 +7,7 @@
 
   // REVIEW: Middleware for grabbing one article by ID:
   articleController.loadById = (ctx, next) => {
-    let articleData = article => {
+    let articleData = artcle => {
       ctx.articles = article;
       next();
     };
@@ -15,8 +15,9 @@
     Article.findWhere('article_id', ctx.params.article_id, articleData);
   };
 
-  // TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
+  //DONE TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
   // Put your response in this comment...
+  // it gets input data from the ajax call that queries the database that Article.findwhere invokes using the first two arguments as parameters for the query. The output data/array of articles by authonames is stored in the context object under the property articles and appended to the page under a ul tag. 
   articleController.loadByAuthor = (ctx, next) => {
     let authorData = articlesByAuthor => {
       ctx.articles = articlesByAuthor;

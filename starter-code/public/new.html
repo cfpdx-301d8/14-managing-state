@@ -81,8 +81,11 @@
       &copy; 2017 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
 
-    <!-- TODO: Do all of the HTML files have the same set of script tags? If not, why? -->
-    <!-- Put your response in this comment... -->
+    <!--DONE TODO: Do all of the HTML files have the same set of script tags? If not, why? -->
+    <!-- They DO NOT have the same script tags.  This is because they do not rely on the same scripts in order to run correctly -->
+  <!-- For example, admin.html links to handlebars locally via a file located in the scripts directory within Vendor.  While new HTML links to handlbars via CDN. Accessing handlbars locally means that you are not dependant upon internet access, to use handlebars. -->
+  <!-- new.html does not contain a script file for page.js because there are no calls that need to be intercepted...we are not creating navigating routes on this page, we're just entering in new articles. -->
+        <!--admin.html and new.html don't' have controller script tags because these pages don't rely on those functions to work...this is the same reason that they don't have a routes.js tag.-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="vendor/scripts/marked.js"></script>
