@@ -45,11 +45,14 @@
     )
   };
 
-  // TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE: TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  // invoked: it is invoked in article Controller several times.
+  //passed in Value: in line 15 of articleConroller we're passing in articleData, in line 26 of articleController we're passing in replace('+', ' '), and in  line 36 we're passing in categoryData.
+  // we're passing in three parameters, feiled value and callback
+  //interacts with code: It interacts with the rest of the code in Server.JS.  When we navigate to /articles/find we make a get request to the server to get data from the database. 
   Article.findWhere = function(field, value, callback) {
     $.get('/articles/find', {field: field, val: value})
-    .then(callback)
+    .then(callback)//w/e function gets the value of results
   };
 
   // REVIEW: A new method for gathering all of the categories. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
@@ -82,7 +85,7 @@
     })
   };
 
-  // TODO: Where is this invoked? Where does it interact elsewhere in the code? Where does the output of this code end up?
+  // DONE TODO: Where is this invoked? Where does it interact elsewhere in the code? Where does the output of this code end up?
   // Put your response in this comment...
   Article.stats = () => {
     return {

@@ -8,8 +8,9 @@
     repos.requestRepos(repoView.index);
   };
 
-  // TODO: What value is in 'module'? What is the purpose of this line of code?
-  // Put your response in this comment...
+  // DONE TODO: What value is in 'module'? What is the purpose of this line of code?
+  // The purpose is to establish this function as an IIFE so that the information within it is available on the window.  It can now be used in other files within our code
+// widow is being passed in as module
   module.aboutController = aboutController;
   
 })(window);

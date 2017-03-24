@@ -68,8 +68,9 @@ app.get('/articles', (request, response) => {
 });
 
 
-// TODO: This is a new route to find a specific instance of an article record from the DB. Where is it invoked? What does it do?
-// Put your response in this comment...
+// DONE TODO: This is a new route to find a specific instance of an article record from the DB. Where is it invoked? What does it do?
+// INVOKED: it's invoked in the Articles.findeWhere function in articleController.
+//WHAT DOES IT DO: it make a SELECT query to the database for all articles  and, once it receives the data from the DB, it sends a response (rows from the table) to the controller.
 app.get('/articles/find', (request, response) => {
   let client = new pg.Client(conString);
   let sql = `SELECT * FROM articles
