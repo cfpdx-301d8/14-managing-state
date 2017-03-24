@@ -8,8 +8,8 @@
     repos.requestRepos(repoView.index);
   };
 
-  // TODO: What value is in 'module'? What is the purpose of this line of code?
-  // Put your response in this comment...
+  // DONE TODO: What value is in 'module'? What is the purpose of this line of code?
+  // Put your response in this comment... "window" is the value in 'module'. It's purpose is to introduce the contained file or contents of the IIFE to the global scope.
   module.aboutController = aboutController;
   
 })(window);

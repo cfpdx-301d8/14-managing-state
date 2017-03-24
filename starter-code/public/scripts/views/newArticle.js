@@ -10,8 +10,8 @@
     $('#new-form').on('change', newArticle.create);
   };
 
-// TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
-// Put your response in this comment...
+// DONE TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
+// Put your response in this comment... Invoked on change in the '#new-form'. It doesn't actually take an argument. It interacts with article.js.
   newArticle.create = function() {
     $('#articles').empty();
     let formArticle = new Article({
